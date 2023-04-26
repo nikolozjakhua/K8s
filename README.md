@@ -10,12 +10,7 @@ You need to build the app's container images and deploy them to Kubernetes.
 
 ## Requirements
 
-- Access to GitLab repository
 - Installed [jq utility](https://stedolan.github.io/jq/download/) 
-
-## Repository Preparation
-
-You must [clone](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-a-repository) this repository before starting to work on the task.
 
 ## Application Description
 
