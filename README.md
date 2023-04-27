@@ -4,6 +4,9 @@ We are glad to see you here!
 
 During this course you will become familiar with a lot of tools and technologies. We would like you to apply this knowledge in practice, otherwise it would be boring. There is a task for you, which you can do along with stydying materials from this course. So, without further adieu, let's begin this task!
 
+**Be aware:**
+Don't make any changes not in **manifest.yml** file. It can break test logic.
+
 # Description
 
 You need to build the app's container images and deploy them to Kubernetes.
@@ -261,4 +264,6 @@ So that don't panic if this step failed on the first run.
 
 ### Last Step
 
-Task will be checked in the life session with your mentor on your local minikube cluster.
+**Pay attention:**
+Automatically test will check only **manifest.yml** correctness. 
+Finally task will be checked in the life session with your mentor on your local minikube cluster.
