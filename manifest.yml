@@ -22,7 +22,7 @@ spec:
       initContainers: 
         - name: wait-for-statefulset
           image: busybox:latest
-          command: ["/bin/sh", "-c", "until nslookup mongo; do sleep 2; done;"]
+          command: ["/bin/sh", "-c", "until nslookup mongo.njakhua.svc.cluster.local; do sleep 2; done;"]
       containers:
       - image: nikolozjakhua/njakhua_application
         imagePullPolicy: IfNotPresent
@@ -79,7 +79,7 @@ metadata:
   name: application
   namespace: njakhua
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: application
   ports:
@@ -131,6 +131,17 @@ spec:
           envFrom:
           - secretRef:
               name: mongo
+          volumeMounts:
+            - name: mongo-data
+              mountPath: /data/db
+  volumeClaimTemplates:
+    - metadata:
+        name: mongo-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -150,4 +161,3 @@ spec:
               number: 80
         path: /
         pathType: Prefix
----
