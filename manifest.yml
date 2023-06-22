@@ -106,6 +106,8 @@ kind: StatefulSet
 metadata:
   name: mongo
   namespace: njakhua
+  labels:
+    app: mongo
 spec:
   replicas: 1
   selector:
