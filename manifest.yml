@@ -111,6 +111,7 @@ spec:
   selector:
     matchLabels:
       app: mongo
+  serviceName: mongo
   template:
     metadata:
       labels:
